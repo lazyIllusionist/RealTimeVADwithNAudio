@@ -16,7 +16,7 @@ namespace RealTimeVAD.Detectors
             get { return _fraim; }
             set
             {
-                ind = false;
+                result = false;
                 _fraim = value ?? throw new ArgumentNullException();
             }
         }
@@ -26,7 +26,7 @@ namespace RealTimeVAD.Detectors
             get { return _fraimSampleRate; }
             set
             {
-                ind = false;
+                result = false;
                 _fraimSampleRate = value;
             }
         }
@@ -36,12 +36,12 @@ namespace RealTimeVAD.Detectors
             get { return _percentOfSucsess; }
             set
             {
-                ind = false;
+                result = false;
                 _percentOfSucsess = value;
             }
         }
 
-        protected bool ind = false;
+        //protected bool ind = false;
         protected bool result;
 
         public AbstractDetector(WaveInEventArgs fraim, int fraimSampleRate, int percentOfSucsess)

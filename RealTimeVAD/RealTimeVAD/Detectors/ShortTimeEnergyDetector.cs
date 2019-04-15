@@ -31,7 +31,6 @@ namespace RealTimeVAD.Detectors
                     if (Decoder(i, barrier))
                         framesWithVoise++;
 
-                base.ind = true;
                 return true;
             }
             catch(Exception e)
@@ -66,11 +65,8 @@ namespace RealTimeVAD.Detectors
         {
             get
             {
-                //if (!base.ind)
-                //{
-                    this.Decoding();
-                    this.AddResults(framesWithVoise);
-               // }
+                this.Decoding();
+                this.AddResults(framesWithVoise);
                 return result;
             }
         }
