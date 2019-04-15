@@ -1,0 +1,14 @@
+﻿<Window x:Class="RealTimeVAD.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RealTimeVAD"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="300" Width="250">
+    <Grid Background="LightGray">
+        <Button x:Name="StartButton"  Width="200" Height="200" BorderThickness="1" BorderBrush="Black" Background="White">
+            
+        </Button>
+    </Grid>
+</Window>
