@@ -23,13 +23,12 @@ namespace RealTimeVAD
     public partial class MainWindow : Window
     {
         bool ind = false;
-        Detectors.ShortTimeEnergyDetector sted;
         WaveIn waveIn;
 
         public MainWindow()
         {
             InitializeComponent();
-            //Initialize();
+            Initialize();
             StartButton.Content = "Press to start";
             StartButton.Click += Click;
         }
@@ -38,11 +37,11 @@ namespace RealTimeVAD
         {
             try
             {
-                sted = new Detectors.ShortTimeEnergyDetector();
-                //{
-                //    fraimSampleRate = 8000,
-                //    percentOfSucsess = 30
-                //};
+                Detectors.ShortTimeEnergyDetector sted = new Detectors.ShortTimeEnergyDetector
+                {
+                    fraimSampleRate = 8000,
+                    percentOfSucsess = 30
+                };
 
                 waveIn = new WaveIn();
                 waveIn.DeviceNumber = 0;
@@ -73,8 +72,6 @@ namespace RealTimeVAD
 
         void Click(object obj, RoutedEventArgs e)
         {
-            if (sted == null || waveIn == null)
-                Initialize();
             try
             {
                 if (ind)
@@ -88,7 +85,7 @@ namespace RealTimeVAD
                 else
                 {
                     waveIn.StartRecording();
-                    StartButton.Content = "If this button:\ngreen something is speaking\nred - no voice outthere";
+                    StartButton.Content = "If this button:\ngreen - something is speaking\nred - no voice outthere";
                     ind = true;
                 }
             }
