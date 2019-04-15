@@ -41,7 +41,6 @@ namespace RealTimeVAD.Detectors
             }
         }
 
-        //protected bool ind = false;
         protected bool result;
 
         public AbstractDetector(WaveInEventArgs fraim, int fraimSampleRate, int percentOfSucsess)
