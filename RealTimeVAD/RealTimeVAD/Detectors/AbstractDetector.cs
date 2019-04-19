@@ -68,6 +68,6 @@ namespace RealTimeVAD.Detectors
                 result = true;
         }
 
-        public bool VoiceIsPresent => result;
+        virtual public bool VoiceIsPresent => result;
     }
 }
