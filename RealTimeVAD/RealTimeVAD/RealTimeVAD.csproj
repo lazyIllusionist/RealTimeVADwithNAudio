@@ -39,6 +39,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -66,6 +67,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Detectors\AbstractDetector.cs" />
+    <Compile Include="Detectors\FFTDetector\FFT.cs" />
     <Compile Include="Detectors\IDetector.cs" />
     <Compile Include="Detectors\ShortTimeEnergyDetector.cs" />
     <Compile Include="Detectors\ShortTimeZeroCrossDetector.cs" />
