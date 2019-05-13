@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using NAudio;
 using NAudio.Wave;
 
+
 namespace RealTimeVAD
 {
     /// <summary>
@@ -68,7 +69,10 @@ namespace RealTimeVAD
         void InitWriter()
         {
             waveIn = new WaveIn();
-            MessageBox.Show(WaveIn.GetCapabilities(0).ProductName);
+            //MessageBox.Show(WaveIn.GetCapabilities(0).ProductName);
+            Microphon.Text = WaveIn.GetCapabilities(0).ProductName;
+            if (Microphon.Text.Length == 0)
+                Microphon.Text = "Microphon is not connected";
             waveIn.DeviceNumber = 0;//0;
             waveIn.DataAvailable += Data_Avaible;
             waveIn.RecordingStopped += waveIn_RecordingStopped;

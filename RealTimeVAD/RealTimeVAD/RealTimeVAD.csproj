@@ -69,11 +69,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Detectors\AbstractDetector.cs" />
-    <Compile Include="Detectors\FFTDetector\FFT.cs" />
-    <Compile Include="Detectors\IDetector.cs" />
-    <Compile Include="Detectors\ShortTimeEnergyDetector.cs" />
-    <Compile Include="Detectors\ShortTimeZeroCrossDetector.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

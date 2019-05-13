@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="300" Width="250">
     <Grid Background="LightGray">
-        <Button x:Name="StartButton"  Width="200" Height="200" BorderThickness="1" BorderBrush="Black" Background="White">
+        <TextBlock x:Name="Microphon" Width="200" Height="28" RenderTransformOrigin="0.54,4.282" Margin="22,10,21.2,232.4">Microphon</TextBlock>
+        <Button x:Name="StartButton"  Width="200" Height="200" BorderThickness="1" BorderBrush="Black" Background="White" RenderTransformOrigin="0.518,1.055" Margin="22,43,21.2,27.4">
             
         </Button>
     </Grid>

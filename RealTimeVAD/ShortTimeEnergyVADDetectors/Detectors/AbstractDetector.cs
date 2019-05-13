@@ -8,7 +8,7 @@ using NAudio.Wave;
 
 namespace RealTimeVAD.Detectors
 {
-    abstract class AbstractDetector : IDetector
+    public abstract class AbstractDetector : IDetector
     {
         WaveInEventArgs _fraim;
         public WaveInEventArgs fraim //100ms .wav sound freim

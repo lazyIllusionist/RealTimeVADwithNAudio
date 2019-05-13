@@ -8,12 +8,12 @@ using NAudio.Wave;
 
 namespace RealTimeVAD.Detectors
 {
-    class ShortTimeZeroCrossDetector : AbstractDetector
+    public class ShortTimeZeroCrossDetector : AbstractDetector
     {
         
         bool ZeroCrossDecoder(WaveInEventArgs e)
         {
-            int necessaryZeroCrossCount = 96 * 2; //96 : 81
+            int necessaryZeroCrossCount = 150 * 2; //96 : 81
 
             int sum = 0;
 

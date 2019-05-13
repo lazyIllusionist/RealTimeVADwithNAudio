@@ -11,7 +11,7 @@ namespace RealTimeVAD.Detectors.FFTDetector
 {
     class FFTAdapter : AbstractDetector
     {
-        Complex[] _
+        Complex[] arr;
 
         public FFTAdapter()
         {
@@ -31,8 +31,8 @@ namespace RealTimeVAD.Detectors.FFTDetector
 
         private Complex[] Adapt(short[] _frameEnergyArray)
         {
-            Complex[] frameSpectrumArray;
-
+            Complex[] frameSpectrumArray = null;
+            return frameSpectrumArray;
         }
     }
 }

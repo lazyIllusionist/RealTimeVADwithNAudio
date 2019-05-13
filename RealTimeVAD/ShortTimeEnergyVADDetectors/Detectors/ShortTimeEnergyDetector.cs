@@ -8,7 +8,7 @@ using NAudio.Wave;
 
 namespace RealTimeVAD.Detectors
 {
-    class ShortTimeEnergyDetector : AbstractDetector
+    public class ShortTimeEnergyDetector : AbstractDetector
     {
         double barrier = 0.08; //Get by empiric
         int framesWithVoise;
