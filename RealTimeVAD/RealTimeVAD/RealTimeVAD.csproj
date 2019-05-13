@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>RealTimeVAD.App</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="NAudio, Version=1.8.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NAudio.1.8.5\lib\net35\NAudio.dll</HintPath>
@@ -102,6 +105,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ShortTimeEnergyVADDetectors\ShortTimeEnergyVADDetectors.csproj">
+      <Project>{9c63d201-e3dd-4e54-b212-9c96209a15ff}</Project>
+      <Name>ShortTimeEnergyVADDetectors</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

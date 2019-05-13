@@ -25,6 +25,7 @@ namespace RealTimeVAD
         bool ind = false;
         WaveIn waveIn;
         Detectors.ShortTimeEnergyDetector sted;
+        Detectors.ShortTimeZeroCrossDetector stzcd;
 
         public MainWindow()
         {
@@ -51,6 +52,12 @@ namespace RealTimeVAD
 
         void InitDetector()
         {
+            stzcd = new Detectors.ShortTimeZeroCrossDetector
+            {
+                fraimSampleRate = 8000,
+                percentOfSucsess = 30
+            };
+
             sted = new Detectors.ShortTimeEnergyDetector
             {
                 fraimSampleRate = 8000,
@@ -61,7 +68,8 @@ namespace RealTimeVAD
         void InitWriter()
         {
             waveIn = new WaveIn();
-            waveIn.DeviceNumber = 0;
+            MessageBox.Show(WaveIn.GetCapabilities(0).ProductName);
+            waveIn.DeviceNumber = 0;//0;
             waveIn.DataAvailable += Data_Avaible;
             waveIn.RecordingStopped += waveIn_RecordingStopped;
             waveIn.WaveFormat = new WaveFormat(8000, 1);
@@ -70,7 +78,8 @@ namespace RealTimeVAD
         void Data_Avaible(object sender, WaveInEventArgs e)
         {
             sted.fraim = e;
-            if (sted.VoiceIsPresent)
+            stzcd.fraim = e;
+            if (sted.VoiceIsPresent || stzcd.VoiceIsPresent)
             {
                 StartButton.Background = Brushes.Green;
                 StartButton.Foreground = Brushes.Black;
