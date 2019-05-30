@@ -10,7 +10,7 @@ namespace RealTimeVAD.Detectors
 {
     public class ShortTimeEnergyDetector : AbstractDetector
     {
-        double barrier = 0.08; //Get by empiric
+        double barrier = 0.07;//0.08; //Get by empiric
         int framesWithVoise;
 
         byte[][] _buffer;
@@ -45,20 +45,33 @@ namespace RealTimeVAD.Detectors
         {
             double Sum2 = 0;
             bool Tr = false;
+            EnergyArray energyArray = new EnergyArray();
+            energyArray._energyList = new List<short>();
 
             for (int index = 0; index < _buffer.Length; index += 2)
             {
                 double Tmp = (short)((_buffer[index + 1] << 8) | _buffer[index]);
+                
+                energyArray ._energyList.Add((short)Tmp);
                 Tmp /= 32768.0;
                 Sum2 += Tmp * Tmp;
                 if (Tmp > barrier)
                     Tr = true; 
             }
             Sum2 /= _buffer.Length / 2;
+
             if (Tr || Sum2 > barrier)
+            {
+                energyArray._haveVoice = true;
+                energyArraysList.Add(energyArray);
                 return true;
+            }
             else
+            {
+                energyArray._haveVoice = false;
+                energyArraysList.Add(energyArray);
                 return false;
+            }
         }
 
         public new bool VoiceIsPresent

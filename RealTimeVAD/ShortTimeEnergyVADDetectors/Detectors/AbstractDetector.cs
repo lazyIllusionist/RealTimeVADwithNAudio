@@ -16,6 +16,7 @@ namespace RealTimeVAD.Detectors
             get { return _fraim; }
             set
             {
+                energyArraysList = new List<EnergyArray>();
                 result = false;
                 _fraim = value ?? throw new ArgumentNullException();
             }
@@ -59,7 +60,7 @@ namespace RealTimeVAD.Detectors
         public AbstractDetector()
         {
             fraimSampleRate = 8000;
-            percentOfSucsess = 30;
+            percentOfSucsess = 40;
         }
 
         protected void AddResults(int count)
@@ -69,5 +70,14 @@ namespace RealTimeVAD.Detectors
         }
 
         virtual public bool VoiceIsPresent => result;
+
+        public List<EnergyArray> energyArraysList = new List<EnergyArray>();
+
+    }
+
+    public struct EnergyArray
+    {
+        public List<short> _energyList;
+        public bool _haveVoice;
     }
 }

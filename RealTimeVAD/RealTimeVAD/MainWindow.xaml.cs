@@ -70,8 +70,8 @@ namespace RealTimeVAD
         {
             waveIn = new WaveIn();
             //MessageBox.Show(WaveIn.GetCapabilities(0).ProductName);
-            Microphon.Text = WaveIn.GetCapabilities(0).ProductName;
-            if (Microphon.Text.Length == 0)
+            Microphon.Text = "Microphon is not connected";//WaveIn.GetCapabilities(0).ProductName;
+            if (Microphon.Text.Length == "Microphon".Length + 1)
                 Microphon.Text = "Microphon is not connected";
             waveIn.DeviceNumber = 0;//0;
             waveIn.DataAvailable += Data_Avaible;
